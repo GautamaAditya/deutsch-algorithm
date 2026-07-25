@@ -2,25 +2,51 @@
 
 > Python implementation of the **Deutsch Algorithm** using **Qiskit**, demonstrating one of the earliest quantum algorithms and its computational advantage over the classical approach.
 
----
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Qiskit](https://img.shields.io/badge/Qiskit-Quantum-purple)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 ## Overview
 The Deutsch algorithm is a toy algorithm serving as a 'proof of concept' that quantum computers can outperform classical computers on certain computational tasks.It lays the conceptual foundation for more advanced quantum algorithms, such as the Deutsch–Jozsa algorithm, Simon's algorithm, Shor's algorithm, and Grover's algorithm, which demonstrate increasingly significant quantum speedups.
 
-Given a Boolean function
+---
 
-\[
-f:\{0,1\}\rightarrow\{0,1\},
-\]
+## Table of Contents
 
-the objective is to determine whether the function is:
+- [Overview](#overview)
+- [Problem Statement](#problem-statement)
+- [Classical Solution](#classical-solution)
+- [Quantum Solution](#quantum-solution)
+- [Quantum Circuit](#quantum-circuit)
+- [Algorithm](#algorithm)
+- [Interpretation](#interpretation)
+- [Workflow](#workflow)
+- [Project Structure](#project-structure)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Running the Project](#running-the-project)
+- [Example Output](#example-output)
+- [Why It Matters](#why-it-matters)
+- [References](#references)
 
-- **Constant** — produces the same output for both inputs
-- **Balanced** — produces different outputs for the two inputs
+---
 
-A classical computer requires **two evaluations** of the function in the worst case.
+# Overview
 
-The Deutsch Algorithm solves the problem using **a single oracle query**.
+The **Deutsch Algorithm** is the first quantum algorithm to demonstrate that a quantum computer can solve a computational problem with fewer oracle queries than any classical deterministic algorithm.
+
+The algorithm considers a Boolean function
+
+```
+f : {0,1} → {0,1}
+```
+
+and determines whether the function is
+
+- **Constant** — both inputs produce the same output
+- **Balanced** — the two inputs produce different outputs
+
+A classical computer requires **two oracle queries** in the worst case, whereas the Deutsch Algorithm requires **only one**.
 
 ---
 
@@ -29,15 +55,15 @@ The Deutsch Algorithm solves the problem using **a single oracle query**.
 There are four possible Boolean functions.
 
 | Function | f(0) | f(1) | Type |
-|----------|------|------|------|
+|----------|:----:|:----:|------|
 | f₀ | 0 | 0 | Constant |
 | f₁ | 1 | 1 | Constant |
 | f₂ | 0 | 1 | Balanced |
 | f₃ | 1 | 0 | Balanced |
 
-The goal is **not** to determine the exact function.
+The objective is **not** to identify the exact function.
 
-Instead, we only want to determine whether it is **constant** or **balanced**.
+Instead, we only determine whether the function is **constant** or **balanced**.
 
 ---
 
@@ -47,25 +73,18 @@ A classical computer evaluates the function twice.
 
 ```text
 Evaluate f(0)
-
-↓
-
+      │
+      ▼
 Evaluate f(1)
-
-↓
-
-Compare outputs
-
-↓
-
-Determine Constant or Balanced
+      │
+      ▼
+Compare Outputs
+      │
+      ▼
+Determine Function Type
 ```
 
-Worst-case oracle queries:
-
-```
-2
-```
+**Worst-case oracle queries:** **2**
 
 ---
 
@@ -77,12 +96,12 @@ The Deutsch Algorithm exploits
 - Quantum interference
 - Phase kickback
 
-to determine the answer with **one oracle query**.
+to determine the answer with **a single oracle query**.
 
 ```mermaid
 flowchart LR
 
-A[Initialize qubits]
+A[Initialize Qubits]
 -->B[Apply Hadamard Gates]
 
 B-->C[Oracle U_f]
@@ -102,38 +121,29 @@ F-->|1|H[Balanced]
 
 # Quantum Circuit
 
-The Deutsch circuit is
+The circuit implemented in this project is shown below.
 
-```text
-          ┌───┐      ┌─────┐      ┌───┐ ┌─┐
-|0> ──────┤ H ├──────┤ U_f ├──────┤ H ├─┤M├──
-          └───┘      └─────┘      └───┘ └╥┘
-                                         ║
-|1> ──────┤ X ├──┤ H ├──────┤ U_f ├────────╫──
-          └───┘  └───┘                     ║
-                                           ║
-Measurement ───────────────────────────────╩──
-```
+> Replace this image after generating the circuit with Qiskit.
+
+<p align="center">
+<img src="images/deutsch_circuit.png" width="750">
+</p>
 
 ---
 
 # Algorithm
 
-1. Initialize
+1. Initialize the qubits
 
-```
-|ψ⟩ = |0⟩|1⟩
-```
-
-2. Apply Hadamard gates
-
-```
-H⊗H
+```text
+|ψ⟩ = |0⟩⊗|1⟩
 ```
 
-3. Query the oracle
+2. Apply Hadamard gates to both qubits.
 
-```
+3. Apply the oracle
+
+```text
 U_f
 ```
 
@@ -146,43 +156,46 @@ U_f
 # Interpretation
 
 | Measurement | Function Type |
-|-------------|---------------|
-| 0 | Constant |
-| 1 | Balanced |
+|:-----------:|---------------|
+| **0** | Constant |
+| **1** | Balanced |
 
 ---
 
 # Workflow
 
 ```mermaid
-graph TD
+flowchart TD
 
-A[Prepare |0>|1>]
--->B[Apply Hadamards]
+A["Prepare Initial State"]
+-->B["Apply Hadamard Gates"]
 
-B-->C[Create Superposition]
+B-->C["Create Superposition"]
 
-C-->D[Oracle Query]
+C-->D["Oracle Query"]
 
-D-->E[Quantum Interference]
+D-->E["Quantum Interference"]
 
-E-->F[Measure]
+E-->F["Measure"]
 
-F-->G[Determine Function Type]
+F-->G["Determine Function Type"]
 ```
 
 ---
 
 # Project Structure
 
-```
-Deutsch-Algorithm
+```text
+Deutsch-Algorithm/
 │
-├── deutsch.py
+├── deutsch_algorithm.py
+├── trials_for_deutsch.ipynb
 ├── README.md
 ├── requirements.txt
+├── LICENSE
 ├── .gitignore
 └── images/
+    └── deutsch_circuit.png
 ```
 
 ---
@@ -194,7 +207,23 @@ Deutsch-Algorithm
 - NumPy
 - Matplotlib
 
-Install the required packages:
+---
+
+# Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/GautamaAditya/deutsch-algorithm.git
+```
+
+Move into the project directory
+
+```bash
+cd deutsch-algorithm
+```
+
+Install the required dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -204,13 +233,23 @@ pip install -r requirements.txt
 
 # Running the Project
 
+Run the implementation using
+
 ```bash
-python deutsch.py
+python deutsch_algorithm.py
+```
+
+Or execute the notebook
+
+```text
+trials_for_deutsch.ipynb
 ```
 
 ---
 
 # Example Output
+
+Balanced oracle
 
 ```text
 Oracle: Balanced
@@ -222,7 +261,7 @@ Result:
 The function is Balanced.
 ```
 
-or
+Constant oracle
 
 ```text
 Oracle: Constant
@@ -238,25 +277,31 @@ The function is Constant.
 
 # Why It Matters
 
-The Deutsch Algorithm was historically significant because it was the **first quantum algorithm** to demonstrate that quantum computation can outperform classical computation for a well-defined problem.
+Although the Deutsch Algorithm solves a relatively simple problem, it introduced several ideas that became fundamental to quantum computing.
 
-Although the problem itself is simple, the algorithm introduced several foundational concepts that appear throughout modern quantum computing, including:
+These include
 
-- Superposition
+- Quantum superposition
 - Quantum parallelism
-- Phase kickback
 - Quantum interference
+- Phase kickback
 - Oracle-based computation
 
-These ideas form the basis for more advanced algorithms such as the Deutsch–Jozsa, Bernstein–Vazirani, Simon's, and Shor's algorithms.
+The algorithm also serves as the conceptual foundation for more advanced quantum algorithms such as
+
+- Deutsch–Jozsa Algorithm
+- Bernstein–Vazirani Algorithm
+- Simon's Algorithm
+- Grover's Algorithm
+- Shor's Algorithm
 
 ---
 
 # References
 
 - David Deutsch, *Quantum Theory, the Church–Turing Principle and the Universal Quantum Computer* (1985)
+- Michael A. Nielsen & Isaac L. Chuang, *Quantum Computation and Quantum Information*
 - Qiskit Documentation
-- Nielsen & Chuang, *Quantum Computation and Quantum Information*
 
 ---
 
