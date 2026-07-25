@@ -240,6 +240,7 @@ Or execute the notebook
 ```text
 trials_for_deutsch.ipynb
 ```
+The Jupyter notebook also outputs the quantum state vector after each major part of the circuit
 
 ---
 
