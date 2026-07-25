@@ -268,8 +268,9 @@ Measurement:
 
 Result:
 The function is Constant.
-```
-The Deutsch algoritm outputs the type of function with probability 1, so only 1 shot (measurement) is required. 
+
+The Deutsch algoritm outputs the type of function with probability 1, so only 1 shot (measurement) is required.
+``` 
 ---
 
 # Why It Matters
