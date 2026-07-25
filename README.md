@@ -252,7 +252,7 @@ Balanced oracle
 Oracle: Balanced
 
 Measurement:
-{'1': 1024}
+{'1': 1}
 
 Result:
 The function is Balanced.
@@ -264,7 +264,7 @@ Constant oracle
 Oracle: Constant
 
 Measurement:
-{'0': 1024}
+{'0': 1}
 
 Result:
 The function is Constant.
