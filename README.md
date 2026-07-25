@@ -57,8 +57,8 @@ There are four possible Boolean functions.
 | Function | f(0) | f(1) | Type |
 |----------|:----:|:----:|------|
 | f₀ | 0 | 0 | Constant |
-| f₁ | 1 | 0 | Balanced |
-| f₂ | 0 | 1 | Balanced |
+| f₁ | 0 | 1 | Balanced |
+| f₂ | 1 | 0 | Balanced |
 | f₃ | 1 | 1 | Constant |
 
 The objective is **not** to identify the exact function.
