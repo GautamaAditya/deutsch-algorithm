@@ -223,11 +223,7 @@ Move into the project directory
 cd deutsch-algorithm
 ```
 
-Install the required dependencies
-
-```bash
-pip install -r requirements.txt
-```
+Install the required dependencies listed above.
 
 ---
 
