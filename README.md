@@ -269,7 +269,14 @@ Measurement:
 Result:
 The function is Constant.
 ```
+
 The following figures show the output of the Deutsch algorithm for each of the four possible Boolean functions.
+
+### Constant-0 function (Constant)
+
+<p align="center">
+  <img src="circuit_images_output/constant0_function.png" width="600">
+</p>
 
 ### Identity function (Balanced)
 
@@ -281,12 +288,6 @@ The following figures show the output of the Deutsch algorithm for each of the f
 
 <p align="center">
   <img src="circuit_images_output/not_function.png" width="600">
-</p>
-
-### Constant-0 function (Constant)
-
-<p align="center">
-  <img src="circuit_images_output/constant0_function.png" width="600">
 </p>
 
 ### Constant-1 function (Constant)
