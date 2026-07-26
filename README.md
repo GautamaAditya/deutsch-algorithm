@@ -270,7 +270,7 @@ Result:
 The function is Constant.
 ```
 
-The following figures show the output of the Deutsch algorithm for each of the four possible Boolean functions.
+The following figures show the output of the Deutsch algorithm for each of the four possible Boolean functions. What is between quantum state |α⟩ and quantum state |β⟩ represents the oracle for that function.
 
 ### Constant-0 function (Constant)
 
