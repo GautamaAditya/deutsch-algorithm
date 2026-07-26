@@ -7,7 +7,7 @@
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 ## Overview
-The Deutsch algorithm is a toy algorithm serving as a 'proof of concept' that quantum computers can outperform classical computers on certain computational tasks.It lays the conceptual foundation for more advanced quantum algorithms, such as the Deutsch–Jozsa algorithm, Simon's algorithm, Shor's algorithm, and Grover's algorithm, which demonstrate increasingly significant quantum speedups.
+The Deutsch algorithm is a toy algorithm serving as a 'proof of concept' that quantum computers can outperform classical computers on certain computational tasks. It lays the conceptual foundation for more advanced quantum algorithms, such as the Deutsch–Jozsa algorithm, Simon's algorithm, Shor's algorithm, and Grover's algorithm, which demonstrate increasingly significant quantum speedups.
 
 ---
 
@@ -21,7 +21,7 @@ The Deutsch algorithm is a toy algorithm serving as a 'proof of concept' that qu
 - [Algorithm](#algorithm)
 - [Interpretation](#interpretation)
 - [Workflow](#workflow)
-- [Project Structure](#project-structure)
+- [Project Structure](#project-str|β⟩ucture)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Running the Project](#running-the-project)
