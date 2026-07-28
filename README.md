@@ -119,18 +119,6 @@ F-->|1|H[Balanced]
 
 ---
 
-# Quantum Circuit
-
-The circuit implemented in this project is shown below.
-
-> Replace this image after generating the circuit with Qiskit.
-
-<p align="center">
-<img src="images/deutsch_circuit.png" width="750">
-</p>
-
----
-
 # Algorithm
 
 1. Initialize the qubits
@@ -271,6 +259,10 @@ The function is Constant.
 ```
 
 The following figures show the output of the Deutsch algorithm for each of the four possible Boolean functions. What is between quantum state |α⟩ and quantum state |β⟩ represents the oracle for that function.
+
+---
+
+# Quantum Circuit
 
 ### Constant-0 function (Constant)
 
